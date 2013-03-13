@@ -13,12 +13,17 @@ The repository includes a demo with all included dependencies.
 
 How to compile and run demo
 -------------------------
-1. Install CMake 
+1. Get the code
 ````bash
-apt-get install cmake
+git clone git://github.com/heathkh/taskqueue.git
+````
+
+2. If not installed, install tools to compile code (gcc, CMake)
+````bash
+apt-get install g++ cmake
 ````   
 
-2. Run the demo script
+3. Run the demo script to compile and run the test binary.
 ````bash
-chmod +x ./compile_and_run_test.sh; ./compile_and_run_test.sh 
+cd taskqueue; chmod +x ./compile_and_run_test.sh; ./compile_and_run_test.sh 
 ````   
