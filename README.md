@@ -14,11 +14,11 @@ The repository includes a demo with all included dependencies.
 How to compile and run demo
 -------------------------
 1. Install CMake 
-'''bash
+````bash
 apt-get install cmake
-'''    
+````   
 
 2. Run the demo script
-'''bash
+````bash
 chmod +x ./compile_and_run_test.sh; ./compile_and_run_test.sh 
-'''    
+````   
