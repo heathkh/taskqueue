@@ -1,0 +1,75 @@
+#ifdef SWIGPYTHON
+
+%include <typemaps.i>
+%include <exception.i>
+%include <std_string.i>
+
+%{
+#include <iostream>
+#include <stdio.h>
+#include <string>
+
+#if HAVE_GLOG
+  #include "google/glog/logging.h"
+#endif
+
+#pragma clang diagnostic ignored "-Wwrite-strings" // silence warnings caused because SWIG generates char* when it should use const char*
+%}
+
+%define %proto_typemaps(PROTO_MESSAGE_NAME, PROTO_MESSAGE_PYTHON_NAME, PROTO_MESSAGE_PYTHON_MODULE)
+
+%typemap(in) const PROTO_MESSAGE_NAME& (PROTO_MESSAGE_NAME temp){
+  if (!PyObject_HasAttrString($input, "SerializeToString")){
+    #if HAVE_GLOG
+      LOG(FATAL) << "looks like this is not a protobuffer!";
+    #else
+      assert(false); // looks like this is not a protobuffer!
+    #endif
+  }
+  PyObject* py_serialized = PyObject_CallMethod($input, "SerializeToString", "");
+   
+  char *buffer;
+  Py_ssize_t length; 
+  PyString_AsStringAndSize(py_serialized, &buffer, &length);
+  assert(temp.ParseFromArray(buffer, length)); // if this fails, you probably have a mismatch in proto types      
+  $1 = &temp;
+}
+
+%typemap(in,numinputs=0) PROTO_MESSAGE_NAME* (PROTO_MESSAGE_NAME temp) {
+   $1 = &temp;
+}
+
+%typemap(argout) PROTO_MESSAGE_NAME* (PROTO_MESSAGE_NAME temp) {  
+  PyObject* mod = PyImport_ImportModule("PROTO_MESSAGE_PYTHON_MODULE");  
+  #if HAVE_GLOG
+    CHECK_NOTNULL(mod);    
+  #endif
+  PyObject* instance = PyObject_CallMethod(mod, "PROTO_MESSAGE_PYTHON_NAME", "()");
+  
+  #if HAVE_GLOG
+    CHECK_NOTNULL(instance);
+    CHECK(PyObject_HasAttrString(instance, (char *)"ParseFromString"));    
+  #endif
+  std::string s = $1->SerializeAsString();
+  
+  // NOTE: must use the (s#) format string and length delimiated format because string itself may contain null which screws up parsing
+  // when using the null terminated parsing convention of just (s) format string.
+  PyObject* res = PyObject_CallMethod(instance, "ParseFromString", "(s#)", s.c_str(), s.size());
+  if (!res){
+    PyErr_Print();
+  }
+  else{  
+    Py_DECREF(res);
+    $result = SWIG_Python_AppendOutput($result, instance);
+  }
+}
+
+
+%enddef    /* %proto_typemaps() macro */
+
+@TYPEMAP_MACRO_CALLS@
+
+
+
+#endif  // SWIGPYTHON
+

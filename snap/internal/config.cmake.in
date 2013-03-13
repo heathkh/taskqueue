@@ -1,0 +1,13 @@
+# Metadata needed to use SNAP package @PROJECT_NAME@
+#
+# @target@_FOUND - set TRUE to indicate that the following variables are defined
+# @target@_INCLUDE_DIRS	- include directories
+# @target@_LIBRARIES - library file provided by this package
+# @target@_REQUIRED_PACKAGES - installed or source tree packages this package uses directly 
+
+SET(@target@_FOUND TRUE)
+SET(@target@_INCLUDE_DIRS "@CUR_INCLUDE@")
+SET(@target@_LIBRARIES "@TARGET_FILE@")
+SET(@target@_REQUIRED_PACKAGES "@requiredPackages@")
+
+

@@ -1,4 +1,9 @@
-taskqueue
-=========
+TaskQueue
+===================
+*Author: Kyle Heath (cmakesnap [at] gmail)*
 
-A task queue that uses a thread pool to complete tasks in parallel.
+[![Build Status](https://travis-ci.org/cmakesnap/snap.png)](https://travis-ci.org/cmakesnap/snap)
+
+What is TaskQueue
+-------------------------------------------------------------------------------
+
