@@ -2,6 +2,8 @@ language: cpp
 compiler:
   - clang
 
+
 before_script: chmod +x ./snap/install.py; ./snap/install.py 
 script: chmod +x ./build_and_run_test.sh; ./build_and_run_test.sh
 after_script: cat ./build/Testing/Temporary/LastTest.log
+
