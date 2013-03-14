@@ -14,7 +14,7 @@ There are no docs, only a working example for computing a rainbow table to inver
 //Creates a task queue with a pool of 4 worker threads
 TaskQueue<HashStringTask> queue(4);
 
-// Adds a task to the work queue.  Call blocks until there is an available thread in the pool.
+// Add task to the work queue...  A call may block until there is an available thread in the pool to accept the task.
 queue.QueueTask(HashStringTask("string a"));
 queue.QueueTask(HashStringTask("string b"));
 queue.QueueTask(HashStringTask("string c"));
