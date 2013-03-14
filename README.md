@@ -1,9 +1,5 @@
 TaskQueue
 ===================
-*Author: Kyle Heath (cmakesnap [at] gmail)*
-
-[![Build Status](https://travis-ci.org/heathkh/taskqueue.png)](https://travis-ci.org/heathkh/taskqueue)
-
 TaskQueue is a header-only library for executing tasks in parallel with a thread pool built with Boost. 
 
 How to use it
@@ -11,9 +7,7 @@ How to use it
 
 To use it all you need to do is copy "taskqueue.hpp" to your source tree and link against Boost threads and asio libraries.
 
-There are no detailed docs, only a working example for computing a rainbow table to invert hashed passwords using all the cores available on your machine.
-
-Here's an overview of how you use it...
+There are no detailed docs, only a working example for computing a rainbow table to invert hashed passwords using all the cores available on your machine. Here's a brief example...
 
 ```CPP
 
@@ -58,3 +52,9 @@ apt-get install g++ cmake
 ````bash
 cd taskqueue; chmod +x ./compile_and_run_test.sh; ./compile_and_run_test.sh 
 ````   
+
+Contact
+------
+*Author: Kyle Heath (cmakesnap [at] gmail)*  
+
+Current test status: [![Build Status](https://travis-ci.org/heathkh/taskqueue.png)](https://travis-ci.org/heathkh/taskqueue)
