@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Taskqueue by heathkh</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Taskqueue</h1>
+        <p>A task queue that uses a thread pool to complete tasks in parallel.</p>
+
+        <p class="view"><a href="https://github.com/heathkh/taskqueue">View the Project on GitHub <small>heathkh/taskqueue</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/heathkh/taskqueue/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/heathkh/taskqueue/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/heathkh/taskqueue">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>TaskQueue</h1>
+
+<p><em>Author: Kyle Heath (cmakesnap [at] gmail)</em></p>
+
+<p><a href="https://travis-ci.org/heathkh/taskqueue"><img src="https://travis-ci.org/heathkh/taskqueue.png" alt="Build Status"></a></p>
+
+<h2>What is TaskQueue</h2>
+
+<p>TaskQueue is a header-only library for executing tasks in parallel with a thread pool built with Boost. To use it all you need to do is copy "taskqueue.hpp" to your source tree and link against Boost threads and asio libraries.</p>
+
+<p>The repository includes a demo showing how to use it.  There are no docs, only a working toy example for computing a rainbow table to invert hashed passwords using all the cores available on your machine.</p>
+
+<p>The repo is large because the demo includes boost for convenience and some unit test libraries for continuous integration testing.</p>
+
+<h2>How to compile and run demo</h2>
+
+<ol>
+<li>
+<p>Get the code</p>
+
+<div class="highlight"><pre>git clone git://github.com/heathkh/taskqueue.git
+</pre></div>
+</li>
+<li>
+<p>If not installed, install tools to compile code (gcc, CMake)</p>
+
+<div class="highlight"><pre>apt-get install g++ cmake
+</pre></div>
+</li>
+<li>
+<p>Run the demo script to compile and run the test binary.</p>
+
+<div class="highlight"><pre><span class="nb">cd </span>taskqueue; chmod +x ./compile_and_run_test.sh; ./compile_and_run_test.sh 
+</pre></div>
+</li>
+</ol>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/heathkh">heathkh</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
