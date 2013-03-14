@@ -5,9 +5,9 @@ TaskQueue is a header-only library for executing tasks in parallel with a thread
 How to use it
 -----
 
-To use it all you need to do is copy "taskqueue.hpp" to your source tree and link against Boost threads and asio libraries.
+To use it all you need to do is copy [taskqueue.hpp](https://github.com/heathkh/taskqueue/blob/master/taskqueue.hpp) to your source tree and link against Boost threads and asio libraries.
 
-There are no docs, only a working example for computing a rainbow table to invert hashed passwords using all the cores available on your machine.  Here's a brief snippet as an example... but check the demo for the full details.
+There are no docs, only a working example for computing a rainbow table to invert hashed passwords using all the cores available on your machine.  Here's a brief snippet as an example... but check the [demo for the full details](https://github.com/heathkh/taskqueue/blob/master/test_taskqueue.cpp).
 
 ```CPP
 
