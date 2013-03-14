@@ -1,6 +1,6 @@
 TaskQueue
 ===================
-TaskQueue is a header-only library for executing tasks in parallel with a thread pool built with Boost. 
+TaskQueue is a header-only library for executing tasks in parallel with a [thread pool](http://en.wikipedia.org/wiki/Thread_pool_pattern) built with Boost. 
 
 How to use it
 -----
