@@ -45,7 +45,7 @@ The repo is large because the demo includes boost for convenience and some unit 
 
 2. If not installed, install tools to compile code (gcc, CMake)
 ````bash
-apt-get install g++ cmake
+apt-get install g++ cmake libssl-dev
 ````   
 
 3. Run the demo script to compile and run the test binary.
